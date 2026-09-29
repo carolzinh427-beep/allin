@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+cardapio_images/
+cardapio_text.json
+logo_test.png
+logo_combined.png
+logo_full.png
+logo_full2.png
+logo_lower.png
+test_logo_450.png
+test_logo_480.png
