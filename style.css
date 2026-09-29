@@ -533,8 +533,29 @@ ul {
   align-items: center;
   padding: 60px 0 80px;
   overflow: hidden;
-  background: radial-gradient(circle at 70% 30%, rgba(255, 91, 0, 0.08) 0%, transparent 60%),
-              linear-gradient(180deg, #121215 0%, #16161a 100%);
+  background: #121215;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/karaoke-stage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.16;
+  filter: saturate(1.1) brightness(0.85);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 65% 35%, rgba(255, 91, 0, 0.12) 0%, rgba(18, 18, 21, 0.82) 60%, #121215 100%),
+              linear-gradient(180deg, rgba(18, 18, 21, 0.65) 0%, #121215 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-visual-backdrop {
@@ -592,6 +613,8 @@ ul {
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 48px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-badge-pill {
@@ -782,8 +805,51 @@ ul {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .exp-card-media {
+    height: 130px;
+  }
+
+  .exp-card-body {
+    padding: 14px 10px;
+  }
+
+  .exp-title {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+
+  .exp-desc {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .exp-card .btn-sm {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+    width: 100%;
+  }
+
+  .exp-badge {
+    top: 8px;
+    left: 8px;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
 }
 
 .exp-card {
@@ -946,102 +1012,100 @@ ul {
   background: var(--border-graphite);
 }
 
-.ambientes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
+/* ==========================================================================
+   AMBIENTES 3D CIRCULAR CAROUSEL (REACT BITS)
+   ========================================================================== */
 
-.ambiente-card {
-  background: var(--bg-graphite-card);
-  border: 1px solid var(--border-graphite);
-  border-radius: var(--radius-md);
-  padding: 24px;
+.ambientes-carousel-outer {
+  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-.ambiente-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--orange-primary);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.ambiente-card:hover {
-  border-color: rgba(255, 91, 0, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-.ambiente-card:hover::before {
-  opacity: 1;
-}
-
-.amb-header {
-  display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  margin: 10px 0 20px;
 }
 
-.amb-number {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  line-height: 1;
-  color: var(--orange-primary);
-  background: var(--orange-subtle);
-  width: 52px;
-  height: 52px;
-  display: flex;
+.ambientes-carousel-hint {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
+  gap: 8px;
+  background: rgba(255, 91, 0, 0.12);
   border: 1px solid rgba(255, 91, 0, 0.3);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  color: var(--orange-primary);
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
-.amb-name {
+.ambientes-carousel-hint .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange-primary);
+  box-shadow: 0 0 10px var(--orange-primary);
+  animation: pulseDot 1.5s infinite;
+}
+
+.ambientes-carousel-root {
+  width: 100%;
+  height: 520px;
+  position: relative;
+  color: #ffffff;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(ellipse at center, rgba(255, 91, 0, 0.04) 0%, rgba(18, 18, 21, 0.6) 70%, transparent 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.circular-carousel__title {
   font-family: var(--font-display);
   font-size: 1.5rem;
+  letter-spacing: 1.5px;
   color: var(--text-white);
-  line-height: 1.1;
 }
 
-.amb-status {
-  font-size: 0.8rem;
-  color: #10B981;
-  font-weight: 500;
+.circular-carousel__subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--orange-primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.amb-features {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.feat-pill {
-  font-size: 0.85rem;
+.circular-carousel__count {
+  font-family: var(--font-sans);
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
 }
 
-.amb-info-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 12px;
+@media (max-width: 768px) {
+  .ambientes-carousel-root {
+    height: 380px;
+  }
+
+  .ambientes-carousel-hint {
+    font-size: 0.76rem;
+    padding: 6px 14px;
+    margin-bottom: 12px;
+  }
+
+  .circular-carousel__title {
+    font-size: 1.25rem;
+  }
+
+  .circular-carousel__subtitle {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ambientes-carousel-root {
+    height: 340px;
+  }
 }
 
 .ambientes-global-cta {

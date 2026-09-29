@@ -2,8 +2,11 @@
    ALL IN 305 — INTERACTIVE LOGIC & CONTROLLER (LANDING PAGE)
    ========================================================================== */
 
+import { initAmbientesCarousel } from './src/ambientesCarousel.jsx';
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
+  initAmbientesCarousel();
   initReservationHelper();
   initLightbox();
   initFlipbook();
