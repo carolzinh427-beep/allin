@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio Completo Oficial | ALL IN 305 Brasília</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Cardápio digital completo do ALL IN 305: hambúrgueres artesanais, aperitivos, espetinhos, drinks clássicos, cervejas, doses, combos e Happy Hour oficial.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.allin305.com.br/cardapio.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.allin305.com.br/cardapio.html">
+  <meta property="og:title" content="Cardápio Completo | ALL IN 305">
+  <meta property="og:description" content="Consulte todos os produtos e preços oficiais do ALL IN 305: drinks, hambúrgueres, cervejas geladas e petiscos.">
+  <meta property="og:image" content="/images/hero-art.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Google Fonts: Outfit & Bebas Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="dark-theme cardapio-page">
+
+  <!-- Ambient Glow -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-middle" aria-hidden="true"></div>
+  <div class="stage-grain" aria-hidden="true"></div>
+
+  <!-- DEDICATED CARDÁPIO HEADER -->
+  <header class="site-header cardapio-header" id="cardapioHeader">
+    <div class="container header-container">
+      <div class="header-left">
+        <a href="/" class="btn-back-home" title="Voltar para a Página Inicial">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span class="back-text">Início</span>
+        </a>
+        <a href="/" class="brand-logo" aria-label="ALL IN 305">
+          <img src="/images/logo-official.png" alt="Logo ALL IN 305" class="header-logo-img" width="140" height="42">
+        </a>
+      </div>
+
+      <div class="header-right">
+        <a href="/cardapio-all-in.pdf" target="_blank" class="btn btn-outline btn-sm hide-mobile" title="Baixar PDF">
+          <span>📄 PDF Oficial</span>
+        </a>
+        <a href="https://wa.me/5561996792002?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20ou%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20card%C3%A1pio%20do%20All%20In%20305." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-primary btn-sm">
+          <span>💬 WHATSAPP</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="cardapio-main-content">
+    <div class="container">
+      <!-- Page Title & Teaser Banner -->
+      <div class="cardapio-hero-banner">
+        <div class="cardapio-hero-text">
+          <span class="section-tag">ALA OFICIAL DE PRODUTOS</span>
+          <h1 class="cardapio-page-title">CARDÁPIO COMPLETO</h1>
+          <p class="cardapio-page-subtitle">
+            Todos os itens, porções, drinks e combos oficiais do All In 305 com os preços exatos do cardápio.
+          </p>
+        </div>
+
+        <div class="cardapio-action-pills">
+          <a href="/cardapio-all-in.pdf" target="_blank" class="action-pill-btn">
+            <span class="pill-icon">📄</span>
+            <span>Ver Cardápio Oficial em PDF</span>
+          </a>
+          <button id="openFlipbookBtn" class="action-pill-btn">
+            <span class="pill-icon">📖</span>
+            <span>Folhear as 13 Páginas Originais</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sticky Search & Filter Toolbar -->
+      <div class="cardapio-sticky-toolbar" id="cardapioToolbar">
+        <!-- Search bar -->
+        <div class="menu-search-box">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="menuSearchInput" placeholder="Buscar produto ou ingrediente (ex: burger, chopp, picanha, moscow, gin...)" aria-label="Buscar produto no cardápio">
+          <button id="clearSearchBtn" class="clear-search-btn" aria-label="Limpar busca" style="display: none;">&times;</button>
+        </div>
+
+        <!-- Category Horizontal Scroll Bar -->
+        <div class="menu-categories-scroll" id="menuCategoriesBar" role="tablist" aria-label="Categorias do cardápio">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Live Counter / Status -->
+      <div class="menu-status-bar" id="menuStatusBar">
+        <span id="menuResultsCount">Carregando cardápio...</span>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu-items-grid cardapio-full-grid" id="menuItemsGrid">
+        <!-- Rendered by cardapio.js -->
+      </div>
+
+      <!-- Bottom Happy Hour & Reservation Help Card -->
+      <div class="cardapio-bottom-help">
+        <div class="help-card-inner">
+          <div class="help-icon">🍺</div>
+          <div class="help-text">
+            <h3>Lembrete do Happy Hour</h3>
+            <p>De terça a quinta das 19h às 21h com Chopp Brahma a R$ 8,90, Caipirinha a R$ 13,90 e porções promocionais!</p>
+          </div>
+          <a href="https://wa.me/5561996792002?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Happy%20Hour%20do%20All%20In%20305." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-primary">
+            FALAR NO WHATSAPP
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FLIPBOOK MODAL FOR 13 OFFICIAL PAGES -->
+  <div class="flipbook-modal" id="flipbookModal" aria-hidden="true" role="dialog">
+    <div class="flipbook-dialog">
+      <div class="flipbook-topbar">
+        <div class="flipbook-info">
+          <h3>Cardápio Oficial ALL IN 305</h3>
+          <span id="flipbookPageIndicator">Página 1 de 13</span>
+        </div>
+        <div class="flipbook-topbar-actions">
+          <a href="/cardapio-all-in.pdf" download class="btn btn-outline btn-sm">Baixar PDF</a>
+          <button class="flipbook-close" id="flipbookClose">&times;</button>
+        </div>
+      </div>
+      <div class="flipbook-viewer">
+        <button class="flip-nav-btn prev" id="flipPrevBtn" aria-label="Página anterior">&larr;</button>
+        <div class="flip-page-container">
+          <img src="/cardapio/page_1.jpg" alt="Página do Cardápio" id="flipbookPageImg">
+        </div>
+        <button class="flip-nav-btn next" id="flipNextBtn" aria-label="Próxima página">&rarr;</button>
+      </div>
+      <div class="flipbook-thumbnails" id="flipbookThumbnails"></div>
+    </div>
+  </div>
+
+  <!-- FIXED BOTTOM FLOATING BAR FOR MOBILE -->
+  <div class="mobile-bottom-bar" id="mobileBottomBar">
+    <div class="mobile-bottom-split">
+      <a href="/" class="btn-bottom-home">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Início</span>
+      </a>
+      <a href="https://wa.me/5561996792002?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20ou%20reserva%20no%20All%20In%20305." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn-bottom-wa">
+        <span>💬 Pedir no WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cardapio Script -->
+  <script type="module" src="/cardapio.js"></script>
+</body>
+</html>

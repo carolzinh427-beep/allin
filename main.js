@@ -1,12 +1,9 @@
 /* ==========================================================================
-   ALL IN 305 — INTERACTIVE LOGIC & CONTROLLER
+   ALL IN 305 — INTERACTIVE LOGIC & CONTROLLER (LANDING PAGE)
    ========================================================================== */
-
-import { MENU_CATEGORIES, MENU_ITEMS } from './src/data/menu.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
-  initMenu();
   initReservationHelper();
   initLightbox();
   initFlipbook();
@@ -85,149 +82,15 @@ function initHeader() {
 }
 
 /* ==========================================================================
-   CARDÁPIO DIGITAL (SEARCH, CATEGORIES & ITEMS)
-   ========================================================================== */
-function initMenu() {
-  const categoriesBar = document.getElementById('menuCategoriesBar');
-  const itemsGrid = document.getElementById('menuItemsGrid');
-  const searchInput = document.getElementById('menuSearchInput');
-  const clearSearchBtn = document.getElementById('clearSearchBtn');
-  const resultsCount = document.getElementById('menuResultsCount');
-
-  let activeCategory = 'todos';
-  let searchTerm = '';
-
-  // Render Category Tabs
-  function renderCategories() {
-    if (!categoriesBar) return;
-    categoriesBar.innerHTML = MENU_CATEGORIES.map(cat => `
-      <button class="category-tab-btn ${cat.id === activeCategory ? 'active' : ''}" 
-              data-cat-id="${cat.id}"
-              role="tab"
-              aria-selected="${cat.id === activeCategory}">
-        <span>${cat.icon}</span>
-        <span>${cat.label}</span>
-      </button>
-    `).join('');
-
-    // Attach click handlers
-    const catButtons = categoriesBar.querySelectorAll('.category-tab-btn');
-    catButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        catButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        activeCategory = btn.dataset.catId;
-        filterAndRenderItems();
-      });
-    });
-  }
-
-  // Render Filtered Products
-  function filterAndRenderItems() {
-    if (!itemsGrid) return;
-
-    const filtered = MENU_ITEMS.filter(item => {
-      // Category filter
-      const matchesCategory = (activeCategory === 'todos') || (item.category === activeCategory);
-
-      // Search filter
-      const term = searchTerm.toLowerCase().trim();
-      const matchesSearch = !term || 
-        item.name.toLowerCase().includes(term) ||
-        (item.description && item.description.toLowerCase().includes(term)) ||
-        (item.tag && item.tag.toLowerCase().includes(term));
-
-      return matchesCategory && matchesSearch;
-    });
-
-    // Update count indicator
-    if (resultsCount) {
-      if (searchTerm) {
-        resultsCount.textContent = `Encontrado(s) ${filtered.length} item(ns) para "${searchTerm}"`;
-      } else if (activeCategory !== 'todos') {
-        const catObj = MENU_CATEGORIES.find(c => c.id === activeCategory);
-        resultsCount.textContent = `${filtered.length} item(ns) em ${catObj ? catObj.label : ''}`;
-      } else {
-        resultsCount.textContent = `Mostrando todos os ${filtered.length} produtos oficiais`;
-      }
-    }
-
-    if (filtered.length === 0) {
-      itemsGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted);">
-          <div style="font-size: 2.5rem; margin-bottom: 12px;">🔍</div>
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-white); margin-bottom: 8px;">NENHUM ITEM ENCONTRADO</h3>
-          <p>Tente buscar por outro termo ou selecione outra categoria.</p>
-        </div>
-      `;
-      return;
-    }
-
-    itemsGrid.innerHTML = filtered.map(item => `
-      <article class="menu-product-card" data-category="${item.category}">
-        <div class="prod-card-top">
-          <h3 class="prod-card-title">${item.name}</h3>
-          <span class="prod-card-price">${item.priceFormatted}</span>
-        </div>
-        ${item.description ? `<p class="prod-card-desc">${item.description}</p>` : ''}
-        ${item.tag ? `<span class="prod-card-tag">${item.tag}</span>` : ''}
-      </article>
-    `).join('');
-  }
-
-  // Search input listeners
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchTerm = e.target.value;
-      if (clearSearchBtn) {
-        clearSearchBtn.style.display = searchTerm ? 'block' : 'none';
-      }
-      filterAndRenderItems();
-    });
-  }
-
-  if (clearSearchBtn) {
-    clearSearchBtn.addEventListener('click', () => {
-      if (searchInput) {
-        searchInput.value = '';
-        searchTerm = '';
-        clearSearchBtn.style.display = 'none';
-        filterAndRenderItems();
-        searchInput.focus();
-      }
-    });
-  }
-
-  // Initial render
-  renderCategories();
-  filterAndRenderItems();
-
-  // Expose global switcher for shortcuts
-  window.switchMenuCategory = (catId) => {
-    activeCategory = catId;
-    renderCategories();
-    filterAndRenderItems();
-    const menuSection = document.getElementById('cardapio');
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-}
-
-/* ==========================================================================
-   CATEGORY SHORTCUTS FROM "BAR COMPLETO"
+   CATEGORY SHORTCUTS FROM "BAR COMPLETO" -> JUMP TO CARDAPIO.HTML
    ========================================================================== */
 function initCategoryShortcuts() {
   const barCatCards = document.querySelectorAll('.bar-cat-card[data-category]');
   barCatCards.forEach(card => {
     card.addEventListener('click', () => {
       const cat = card.dataset.category;
-      if (window.switchMenuCategory && cat) {
-        window.switchMenuCategory(cat);
+      if (cat) {
+        window.location.href = `/cardapio.html?cat=${encodeURIComponent(cat)}`;
       }
     });
   });
@@ -337,7 +200,6 @@ function initFlipbook() {
       pageIndicator.textContent = `Página ${currentPage} de ${totalPages}`;
     }
 
-    // Update active thumb
     if (thumbsContainer) {
       const thumbs = thumbsContainer.querySelectorAll('.flip-thumb');
       thumbs.forEach((thumb, idx) => {

@@ -104,7 +104,7 @@
           <li><a href="#karaoke" class="nav-link">Karaokê</a></li>
           <li><a href="#ambientes" class="nav-link">Ambientes</a></li>
           <li><a href="#happy-hour" class="nav-link">Happy Hour</a></li>
-          <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+          <li><a href="/cardapio.html" class="nav-link">Cardápio</a></li>
           <li><a href="#experiencias" class="nav-link">Experiências</a></li>
           <li><a href="#localizacao" class="nav-link">Localização</a></li>
         </ul>
@@ -145,7 +145,7 @@
         <li><a href="#karaoke" class="mobile-nav-link">Karaokê</a></li>
         <li><a href="#ambientes" class="mobile-nav-link">7 Ambientes</a></li>
         <li><a href="#happy-hour" class="mobile-nav-link">Happy Hour</a></li>
-        <li><a href="#cardapio" class="mobile-nav-link">Cardápio Digital</a></li>
+        <li><a href="/cardapio.html" class="mobile-nav-link">Cardápio Completo</a></li>
         <li><a href="#experiencias" class="mobile-nav-link">Experiências</a></li>
         <li><a href="#localizacao" class="mobile-nav-link">Localização</a></li>
       </ul>
@@ -299,7 +299,7 @@
             <div class="exp-card-body">
               <h3 class="exp-title">CARDÁPIO</h3>
               <p class="exp-desc">Hambúrgueres artesanais, porções generosas, drinks autorais, cervejas e muito mais.</p>
-              <a href="#cardapio" class="btn btn-sm btn-outline-orange">VER CARDÁPIO</a>
+              <a href="/cardapio.html" class="btn btn-sm btn-outline-orange">VER CARDÁPIO</a>
             </div>
           </article>
 
@@ -646,8 +646,8 @@
         </div>
 
         <div class="text-center mt-8" data-reveal="fade-up">
-          <a href="#cardapio" class="btn btn-primary btn-lg" id="barFullMenuBtn">
-            VER CARDÁPIO COMPLETO
+          <a href="/cardapio.html" class="btn btn-primary btn-lg" id="barFullMenuBtn">
+            🍽️ VER CARDÁPIO COMPLETO
           </a>
         </div>
       </div>
@@ -736,7 +736,7 @@
 
           <!-- Happy Hour CTAs -->
           <div class="hh-actions">
-            <a href="#cardapio" class="btn btn-outline-white" id="hhSeeFullMenuBtn">
+            <a href="/cardapio.html?cat=happy-hour" class="btn btn-outline-white" id="hhSeeFullMenuBtn">
               VER HAPPY HOUR COMPLETO
             </a>
             <a href="https://wa.me/5561996792002?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Happy%20Hour%20do%20All%20In%20305." 
@@ -751,56 +751,79 @@
       </div>
     </section>
 
-    <!-- SECTION: CARDÁPIO DIGITAL INTERATIVO -->
-    <section class="section section-menu" id="cardapio">
+    <!-- SECTION: CARDÁPIO (ALA DEDICADA & PREVIEW COMPACTO) -->
+    <section class="section section-menu-preview" id="cardapio">
       <div class="container">
         <div class="section-header text-center" data-reveal="fade-up">
           <span class="section-tag">GASTRONOMIA & BEBIDAS</span>
-          <h2 class="section-title">CARDÁPIO DIGITAL</h2>
+          <h2 class="section-title">CARDÁPIO COMPLETO</h2>
           <p class="section-subtitle">
-            Consulte todos os produtos e preços oficiais do All In 305 em tempo real. Navegue pelas categorias ou busque pelo seu item favorito.
+            Para sua comodidade e navegação ultrarrápida no celular, nosso cardápio digital completo está em uma ala dedicada com busca instantânea, preços oficiais e todos os itens do bar e da cozinha.
           </p>
+        </div>
 
-          <!-- PDF Download / Viewer CTA Button -->
-          <div class="menu-pdf-bar">
-            <a href="/cardapio-all-in.pdf" target="_blank" class="btn btn-outline btn-sm" id="viewPdfBtn" title="Abrir PDF oficial do Cardápio">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zm4.5 1.5h1v-2.5h-1V11zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"/>
-              </svg>
-              <span>VER CARDÁPIO OFICIAL EM PDF</span>
-            </a>
-            <button class="btn btn-ghost btn-sm" id="openFlipbookBtn">
-              <span>📖 Folhear Páginas Oficiais (13 Páginas)</span>
-            </button>
+        <!-- 4 Teaser Highlights Cards -->
+        <div class="menu-preview-highlights" data-reveal="fade-up">
+          <div class="preview-mini-card">
+            <span class="mini-card-badge">🍔 HAMBÚRGUER ARTESANAL</span>
+            <div class="mini-card-content">
+              <h4>Karaokê Burger</h4>
+              <p>Pão brioche, hambúrguer 120g empanado, queijo cheddar, bacon caramelizado com mel e maionese da casa.</p>
+              <span class="mini-card-price">R$ 34,90</span>
+            </div>
+          </div>
+
+          <div class="preview-mini-card">
+            <span class="mini-card-badge">🍟 PETISCO DA CASA</span>
+            <div class="mini-card-content">
+              <h4>Batata Frita Especial All In</h4>
+              <p>Porção generosa de batatas crocantes cobertas com queijo cheddar cremoso e bacon crocante.</p>
+              <span class="mini-card-price">R$ 34,90</span>
+            </div>
+          </div>
+
+          <div class="preview-mini-card">
+            <span class="mini-card-badge">🍹 DRINK CLÁSSICO</span>
+            <div class="mini-card-content">
+              <h4>Moscow Mule Oficial</h4>
+              <p>Vodka de qualidade, suco de limão taiti, xarope de açúcar, refrigerante de gengibre e espuma artesanal.</p>
+              <span class="mini-card-price">R$ 37,90</span>
+            </div>
+          </div>
+
+          <div class="preview-mini-card">
+            <span class="mini-card-badge">🍺 HAPPY HOUR (TER A QUI)</span>
+            <div class="mini-card-content">
+              <h4>Chopp Brahma 300ml</h4>
+              <p>Tirado na pressão, trincando de gelado com colarinho cremoso. De terça a quinta das 19h às 21h.</p>
+              <span class="mini-card-price">R$ 8,90</span>
+            </div>
           </div>
         </div>
 
-        <!-- Search & Filter Controls -->
-        <div class="menu-controls" data-reveal="fade-up">
-          <!-- Search input -->
-          <div class="menu-search-box">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="text" id="menuSearchInput" placeholder="Buscar no cardápio (ex: burger, chopp, moscow, batata...)" aria-label="Buscar item no cardápio">
-            <button id="clearSearchBtn" class="clear-search-btn" aria-label="Limpar busca" style="display: none;">&times;</button>
+        <!-- Grand Action Banner (Compact, Responsive, High-Impact CTA) -->
+        <div class="full-menu-action-banner" data-reveal="fade-up">
+          <div class="action-banner-inner">
+            <div class="action-banner-info">
+              <h3>+ DE 100 OPÇÕES NO CARDÁPIO DIGITAL</h3>
+              <p>
+                Acesse a ala completa para explorar todos os petiscos, hambúrgueres, espetinhos, drinks autorais, cervejas, doses e combos sem ocupar espaço na tela do seu celular!
+              </p>
+            </div>
+            <div class="action-banner-buttons">
+              <a href="/cardapio.html" class="btn btn-primary btn-lg" id="btnVerCardapioCompleto">
+                🍽️ VER CARDÁPIO COMPLETO
+              </a>
+              <div class="action-sub-buttons">
+                <a href="/cardapio-all-in.pdf" target="_blank" class="btn btn-outline btn-sm" title="Abrir PDF Oficial">
+                  📄 Baixar PDF Oficial
+                </a>
+                <button class="btn btn-ghost btn-sm" id="openFlipbookBtn">
+                  📖 Folhear 13 Páginas
+                </button>
+              </div>
+            </div>
           </div>
-
-          <!-- Category Pills (Horizontal Scroll on Mobile) -->
-          <div class="menu-categories-scroll" id="menuCategoriesBar" role="tablist" aria-label="Categorias do cardápio">
-            <!-- Dynamically populated or rendered -->
-          </div>
-        </div>
-
-        <!-- Search Status / Counter -->
-        <div class="menu-status-bar" id="menuStatusBar">
-          <span id="menuResultsCount">Carregando itens...</span>
-        </div>
-
-        <!-- Menu Items Grid -->
-        <div class="menu-items-grid" id="menuItemsGrid">
-          <!-- Populated by JavaScript from src/data/menu.js -->
         </div>
       </div>
     </section>
@@ -863,6 +886,12 @@
                 <span class="add-chip">Ovo <strong>R$ 3,50</strong></span>
               </div>
             </div>
+
+            <div class="mt-6">
+              <a href="/cardapio.html?cat=hamburgueres" class="btn btn-outline btn-sm">
+                VER TODOS OS HAMBÚRGUERES NO CARDÁPIO
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -886,7 +915,7 @@
             <p class="drink-ingredients">Vodka, xarope de gengibre artesanal, sumo de limão e espuma aveludada de gengibre.</p>
             <div class="drink-price-row">
               <span class="price-val">R$ 37,90</span>
-              <a href="#cardapio" class="drink-order-link">Ver no cardápio &rarr;</a>
+              <a href="/cardapio.html?cat=drinks" class="drink-order-link">Ver no cardápio &rarr;</a>
             </div>
           </div>
 
@@ -896,7 +925,7 @@
             <p class="drink-ingredients">Gin de qualidade, energético tropical da casa e fatias de laranja fresca.</p>
             <div class="drink-price-row">
               <span class="price-val">R$ 36,90</span>
-              <a href="#cardapio" class="drink-order-link">Ver no cardápio &rarr;</a>
+              <a href="/cardapio.html?cat=drinks" class="drink-order-link">Ver no cardápio &rarr;</a>
             </div>
           </div>
 
@@ -906,7 +935,7 @@
             <p class="drink-ingredients">Drink francês à base de espumante gelado e licor de cassis refinado.</p>
             <div class="drink-price-row">
               <span class="price-val">R$ 36,90</span>
-              <a href="#cardapio" class="drink-order-link">Ver no cardápio &rarr;</a>
+              <a href="/cardapio.html?cat=drinks" class="drink-order-link">Ver no cardápio &rarr;</a>
             </div>
           </div>
 
@@ -916,7 +945,7 @@
             <p class="drink-ingredients">Aperol, espumante brut, água com gás e rodelas aromáticas de laranja.</p>
             <div class="drink-price-row">
               <span class="price-val">R$ 36,90</span>
-              <a href="#cardapio" class="drink-order-link">Ver no cardápio &rarr;</a>
+              <a href="/cardapio.html?cat=drinks" class="drink-order-link">Ver no cardápio &rarr;</a>
             </div>
           </div>
         </div>
@@ -973,7 +1002,7 @@
             </div>
 
             <div class="mt-6">
-              <a href="#cardapio" class="btn btn-outline-orange" id="seeAllBeersBtn">
+              <a href="/cardapio.html?cat=cervejas" class="btn btn-outline-orange" id="seeAllBeersBtn">
                 VER TODAS AS OPÇÕES NO CARDÁPIO
               </a>
             </div>
@@ -1339,7 +1368,7 @@
             <li><a href="#karaoke">Karaokê</a></li>
             <li><a href="#ambientes">7 Ambientes</a></li>
             <li><a href="#happy-hour">Happy Hour</a></li>
-            <li><a href="#cardapio">Cardápio Digital</a></li>
+            <li><a href="/cardapio.html">Cardápio Completo</a></li>
             <li><a href="#experiencias">Experiências</a></li>
             <li><a href="#localizacao">Localização</a></li>
           </ul>

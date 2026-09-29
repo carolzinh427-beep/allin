@@ -344,6 +344,32 @@ ul {
   height: 100%;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border-graphite);
+  transition: all var(--transition-fast);
+}
+
+.btn-back-home:hover {
+  background: var(--orange-subtle);
+  border-color: var(--orange-primary);
+  color: var(--orange-primary);
+}
+
 .brand-logo {
   display: flex;
   align-items: center;
@@ -397,7 +423,8 @@ ul {
   width: 100%;
 }
 
-.header-actions {
+.header-actions,
+.header-right {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1237,30 +1264,196 @@ ul {
 }
 
 /* ==========================================================================
-   SECTION: CARDÁPIO DIGITAL INTERATIVO
+   SECTION: CARDÁPIO (PREVIEW COMPACTO NA HOME)
    ========================================================================== */
 
-.section-menu {
+.section-menu-preview {
   background: var(--bg-graphite-dark);
 }
 
-.menu-pdf-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 20px;
+.menu-preview-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 36px;
 }
 
-.menu-controls {
+.preview-mini-card {
+  background: var(--bg-graphite-card);
+  border: 1px solid var(--border-graphite);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+}
+
+.preview-mini-card:hover {
+  border-color: rgba(255, 91, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.mini-card-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--orange-primary);
+  margin-bottom: 10px;
+}
+
+.mini-card-content h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+
+.mini-card-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.mini-card-price {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--orange-primary);
+  display: block;
+}
+
+/* Action Banner to go to full menu */
+.full-menu-action-banner {
+  background: linear-gradient(135deg, rgba(255, 91, 0, 0.16) 0%, rgba(32, 32, 38, 0.85) 100%);
+  border: 2px solid rgba(255, 91, 0, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 91, 0, 0.2);
+}
+
+.action-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.action-banner-info {
+  max-width: 580px;
+}
+
+.action-banner-info h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-white);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.action-banner-info p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.action-banner-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.action-sub-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   DEDICATED CARDÁPIO PAGE (cardapio.html)
+   ========================================================================== */
+
+.cardapio-page {
+  padding-top: var(--header-height);
+}
+
+.cardapio-main-content {
+  padding: 40px 0 80px;
+}
+
+.cardapio-hero-banner {
+  background: radial-gradient(circle at 50% 0%, rgba(255, 91, 0, 0.15) 0%, rgba(20, 20, 24, 0.8) 70%);
+  border: 1px solid rgba(255, 91, 0, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
   margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cardapio-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  letter-spacing: 1.5px;
+  color: var(--text-white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.cardapio-page-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  font-weight: 300;
+}
+
+.cardapio-action-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-graphite);
+  color: var(--text-white);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.action-pill-btn:hover {
+  background: var(--orange-subtle);
+  border-color: var(--orange-primary);
+  color: var(--orange-primary);
+}
+
+/* Sticky Toolbar */
+.cardapio-sticky-toolbar {
+  position: sticky;
+  top: var(--header-height);
+  background: rgba(18, 18, 21, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 16px 0 10px;
+  z-index: 40;
+  border-bottom: 1px solid var(--border-graphite);
+  margin-bottom: 24px;
 }
 
 .menu-search-box {
   position: relative;
-  max-width: 580px;
-  margin: 0 auto 24px;
+  max-width: 100%;
+  margin: 0 auto 16px;
 }
 
 .menu-search-box .search-icon {
@@ -1310,7 +1503,7 @@ ul {
   align-items: center;
   gap: 10px;
   overflow-x: auto;
-  padding: 8px 4px 16px;
+  padding: 4px 4px 10px;
   scrollbar-width: thin;
   scrollbar-color: var(--border-graphite) transparent;
 }
@@ -1360,7 +1553,7 @@ ul {
   color: var(--text-muted);
 }
 
-/* Menu Items Grid */
+/* Full Menu Grid */
 .menu-items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1393,7 +1586,7 @@ ul {
 }
 
 .prod-card-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-white);
   line-height: 1.3;
@@ -1401,7 +1594,7 @@ ul {
 
 .prod-card-price {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--orange-primary);
   white-space: nowrap;
   line-height: 1;
@@ -1411,19 +1604,113 @@ ul {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.prod-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .prod-card-tag {
   display: inline-block;
-  align-self: flex-start;
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--orange-primary);
   background: var(--orange-subtle);
   padding: 2px 8px;
   border-radius: var(--radius-sm);
-  margin-top: auto;
+}
+
+.btn-order-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-order-wa:hover {
+  background: #10B981;
+  color: #ffffff;
+}
+
+/* Cardapio Bottom Help */
+.cardapio-bottom-help {
+  margin-top: 56px;
+  background: var(--bg-graphite);
+  border: 1px solid var(--border-graphite);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+.help-card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.help-icon {
+  font-size: 2.2rem;
+}
+
+.help-text h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-white);
+  margin-bottom: 4px;
+}
+
+.help-text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Mobile Bottom Split Bar */
+.mobile-bottom-split {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-bottom-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: var(--text-white);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.btn-bottom-wa {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--orange-primary);
+  color: var(--text-white);
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 20px var(--orange-glow);
 }
 
 /* ==========================================================================
@@ -1683,7 +1970,7 @@ ul {
 
 /* ==========================================================================
    SECTION: ALÉM DO KARAOKÊ (Sinuca & Fliperama)
-   ========================================================================== */
+   ========================================================================= */
 
 .section-beyond {
   background: var(--bg-graphite-dark);
@@ -2576,6 +2863,19 @@ ul {
   .footer-top {
     grid-template-columns: 1fr 1fr;
   }
+
+  .cardapio-hero-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cardapio-action-pills {
+    width: 100%;
+  }
+
+  .action-pill-btn {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2584,7 +2884,8 @@ ul {
   }
 
   .desktop-nav,
-  .header-cta {
+  .header-cta,
+  .hide-mobile {
     display: none;
   }
 
@@ -2648,6 +2949,33 @@ ul {
     grid-template-columns: 1fr;
   }
 
+  .menu-preview-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .full-menu-action-banner {
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .action-banner-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .action-banner-buttons {
+    width: 100%;
+  }
+
+  .action-sub-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .action-sub-buttons .btn {
+    width: 100%;
+  }
+
   .booking-card-wrap {
     padding: 28px 18px;
   }
@@ -2672,5 +3000,17 @@ ul {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  .cardapio-page-title {
+    font-size: 2.2rem;
+  }
+
+  .cardapio-hero-banner {
+    padding: 24px 16px;
+  }
+
+  .cardapio-sticky-toolbar {
+    top: var(--header-height);
   }
 }
