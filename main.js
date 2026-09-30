@@ -3,10 +3,12 @@
    ========================================================================== */
 
 import { initAmbientesCarousel } from './src/ambientesCarousel.jsx';
+import { initGallerySlider } from './src/gallerySlider.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initAmbientesCarousel();
+  initGallerySlider();
   initReservationHelper();
   initLightbox();
   initFlipbook();
