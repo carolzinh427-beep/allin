@@ -98,7 +98,7 @@ function initCardapioPage() {
     if (filtered.length === 0) {
       itemsGrid.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted);">
-          <div style="font-size: 2.5rem; margin-bottom: 12px;">🔍</div>
+          <div style="font-size: 1.5rem; margin-bottom: 12px; color: var(--orange-primary);">Nenhum item encontrado</div>
           <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-white); margin-bottom: 8px;">NENHUM ITEM ENCONTRADO</h3>
           <p>Tente buscar por outro termo ou selecione outra categoria.</p>
         </div>
